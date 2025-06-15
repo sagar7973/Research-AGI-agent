@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AGI Assistant</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      width: 380px;
+      padding: 16px;
+      margin: 0;
+      color: #1a1a1a;
+      background: #f8f9fa;
+    }
+    h3 {
+      color: #202124;
+      margin: 0 0 16px 0;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 18px;
+    }
+    #query {
+      width: 100%;
+      height: 80px;
+      padding: 12px;
+      border: 1px solid #dadce0;
+      border-radius: 8px;
+      resize: vertical;
+      font-size: 14px;
+      box-sizing: border-box;
+      margin-bottom: 12px;
+    }
+    #query:focus {
+      outline: none;
+      border-color: #1a73e8;
+      box-shadow: 0 0 0 2px #e8f0fe;
+    }
+    #searchBtn {
+      width: 100%;
+      padding: 10px;
+      background: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    #searchBtn:hover {
+      background: #1765cc;
+    }
+    #searchBtn:disabled {
+      background: #e0e0e0;
+      cursor: not-allowed;
+    }
+    #result {
+      margin-top: 16px;
+    }
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px;
+      color: #5f6368;
+    }
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(0,0,0,0.1);
+      border-radius: 50%;
+      border-top-color: #1a73e8;
+      animation: spin 1s ease-in-out infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .error {
+      background: #fce8e6;
+      color: #d93025;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .result-card {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      border: 1px solid #e0e0e0;
+    }
+    .result-card h4 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+    }
+    .result-card h4 a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+    .result-card h4 a:hover {
+      text-decoration: underline;
+    }
+    .summary {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #3c4043;
+      margin: 8px 0;
+    }
+    .source {
+      font-size: 12px;
+      color: #5f6368;
+      margin-top: 8px;
+    }
+    .source a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .source a:hover {
+      text-decoration: underline;
+    }
+    .no-results {
+      text-align: center;
+      padding: 20px;
+      color: #5f6368;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h3>Research AGI Assistant</h3>
+  <textarea id="query" placeholder="Enter your research question (e.g. 'What are the latest breakthroughs in quantum computing?')"></textarea>
+  <button id="searchBtn">Search</button>
+  <div id="result"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
